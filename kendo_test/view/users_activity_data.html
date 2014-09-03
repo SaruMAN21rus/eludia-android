@@ -1,0 +1,35 @@
+<div data-role="view" data-layout="main" data-model="APP.models.users_activity" data-before-show="showGrid">
+	<h1 data-bind="html: title"></h1>
+	<div id='grid' class='dataTable'></div>
+</div>
+
+<script>
+     function showGrid (e) {
+          var data = e.view.model.ds;
+          var gridOptions = {
+              columns: [
+              	{
+                      field: 'label',
+                      title: 'Бренд',
+                  },
+              	{
+                      field: 'plan',
+                      title: 'План',
+                      format: "{0:N}"
+                  },
+              	{
+                      field: 'fact',
+                      title: 'Факт',
+                      format: "{0:N}"
+                 },
+				 {
+                      field: 'diff',
+                      title: 'Отклонение',
+                      format: "{0:N}"
+                 }
+              ],              
+          	dataSource: data
+          };          	
+          $("#grid").kendoGrid(gridOptions);
+      };
+</script>

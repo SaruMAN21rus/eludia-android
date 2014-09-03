@@ -1,0 +1,73 @@
+  <html>
+   <head>
+    <title>Авторизация</title>
+    <meta charset='utf-8' content='text/html' http-equiv='content-type'>
+    <meta content='ie=edge,chrome=1' http-equiv='x-ua-compatible'>
+    <meta content='initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, user-scalable=no' name='viewport'>
+    <meta content='yes' name='apple-mobile-web-app-capable'>
+    <meta content='translucent-black' name='apple-mobile-web-app-status-bar-style'>
+    <link href="styles/application.css" media='screen' rel='stylesheet' type='text/css'>
+  </head>
+  <body class='auth'>
+    <div class='eludia-application'>
+      <div class='application-container'>
+        <div class='container'>
+          <div class='row'>
+            <div class='col-sm-4 col-sm-offset-4'>
+              <div class='auth-block'>
+                <h3 class='auth-block-title'>
+                  <span class='auth-title-icon'>
+                    <i class='fontello-icon-tasks'></i>
+                  </span>
+                  <span class='auth-title-caption'>
+                    eludia
+                  </span>
+                </h3>
+                <form class='form-vertical auth-form' target='invisible' id="authForm">
+                  <input type='hidden' name='type' value='logon'/>
+                  <input type='hidden' name='action' value='execute'/>
+
+                  <div class='form-group'>
+                    <input class='form-control' placeholder='логин' type='text' name='login' autofocus>
+                  </div>
+                  <div class='form-group'>
+                    <input class='form-control' placeholder='пароль' type='password' name='password'>
+                  </div>
+                  <div class='form-group'>
+                    <input class='btn btn-block btn-lg btn-primary btn-submit' type='submit' value='Войти в систему'>
+                  </div>
+                      <script type="text/javascript">
+                      $("#authForm").submit(function(e){
+                         e.preventDefault();
+        				var values = $(this).serialize();
+                         $.ajax ({
+                            url: config.host + "/?__only_json=1&action=execute&type=logon",
+                            data: values,
+                            dataType: 'json',
+                            type: 'POST',
+                            success: function (data) {
+                                if (data.id_session) {
+                                    config.id_session = data.id_session;                            
+                                    window.APP = {
+                                      models: {
+                                         users_activity: {
+                                              title: "Выполнение плана продаж",
+                                          	ds: loadDataSource("users_activity")
+                                         }
+                                      }
+                                    };
+                                    window.location.hash = "#view/users_activity_chart.html"
+                                }
+                            }
+            	        });
+                      });
+                    </script>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </body>
+</html>

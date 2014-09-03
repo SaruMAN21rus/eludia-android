@@ -1,0 +1,44 @@
+<div data-role="view" data-layout="main" data-model="APP.models.users_activity" data-zoom="true" data-before-show="showChart">
+	<h1 data-bind="html: title"></h1>
+	<div id='chart'></div>
+</div>
+
+<script>
+     function showChart (e) {
+          var data = e.view.model.ds;
+          var сhartOptions = {
+            tooltip:{
+                visible:1,
+                format:"{0:N2}",
+                template:"#= series.name #: #= value #"
+            },
+            chartArea:{heigth:300},
+            seriesDefaults:{
+                type:"column",
+                labels:{
+                    visible:1,
+                    format:"{0:N2}",
+                    background:"transparent",
+					rotation: -90   
+                }
+            },
+            valueAxis:{
+                title:{
+                    text:"USD"
+                },
+                labels:{
+                    format:"{0:N2}"
+                }
+            },
+            legend:{
+                position:"bottom"
+            },
+            categoryAxis:{
+                field:"label"
+            },
+            series:[{name:"План",field:"plan"},{name:"Факт",field:"fact"},{name:"Отклонение",field:"diff"}],
+            dataSource: data
+          };          	
+          $("#chart").kendoChart(сhartOptions);
+      };
+</script>
