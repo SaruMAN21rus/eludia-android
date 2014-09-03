@@ -37,6 +37,10 @@
                     <input class='btn btn-block btn-lg btn-primary btn-submit' type='submit' value='Войти в систему'>
                   </div>
                       <script type="text/javascript">
+                      $(document).ready (function () {
+                        $("INPUT[name='login']").focus ();
+                      });
+
                       $("#authForm").submit(function(e){
                          e.preventDefault();
         				var values = $(this).serialize();
