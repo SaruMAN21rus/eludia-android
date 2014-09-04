@@ -1,10 +1,10 @@
-<div data-role="view" data-layout="main" data-model="APP.models.users_activity" data-before-show="showGrid">
+<div data-role="view" data-layout="main" data-model="APP.models.clients_report" data-before-show="showGrid">
 	<h1 data-bind="html: title"></h1>
 	<div id='grid'></div>
     <div data-role="footer">
         <div data-role="tabstrip">
-            <a href="view/users_activity_chart.html" data-icon="settings">График</a>
-            <a href="view/users_activity_data.html" data-icon="home">Данные</a>
+            <a href="view/clients_report_chart.html" data-icon="settings">График</a>
+            <a href="view/clients_report_data.html" data-icon="home">Данные</a>
         </div>
     </div>
 </div>
@@ -19,20 +19,20 @@
                       title: 'Бренд',
                   },
               	{
-                      field: 'plan',
-                      title: 'План',
+                      field: 'value_2011',
+                      title: '2011 год',
                       format: "{0:N}"
                   },
               	{
-                      field: 'fact',
-                      title: 'Факт',
+                      field: 'value_2012',
+                      title: '2012 год',
                       format: "{0:N}"
-                 },
-				 {
-                      field: 'diff',
-                      title: 'Отклонение',
+                  },
+              	{
+                      field: 'value_2013',
+                      title: '2013 год',
                       format: "{0:N}"
-                 }
+                  },
               ],              
           	dataSource: data
           };

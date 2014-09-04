@@ -1,0 +1,61 @@
+<div data-role="view" data-layout="main" data-model="APP.models.clients_report" data-zoom="true" data-before-show="showChart">
+    <h1 data-bind="html: title"></h1>
+	<div id='cliens_report_chart'></div>
+    <div data-role="footer">
+        <div data-role="tabstrip">
+            <a href="view/clients_report_chart.html" data-icon="settings">График</a>
+            <a href="view/clients_report_data.html" data-icon="home">Данные</a>
+        </div>
+    </div>
+</div>
+
+<script>
+     function showChart (e) {
+          var data = e.view.model.ds;
+          var сhartOptions = {
+            tooltip:{
+                visible:1,
+                format:"{0:N2}",
+                template:"#= series.name#: #= value #"
+            },
+            chartArea:{heigth:600},
+            seriesDefaults:{
+                type:"area",
+                stack:true,
+            },
+            valueAxis:{
+                title:{
+                    text:"USD"
+                },
+                labels:{
+                    format:"{0:N2}"
+                }
+            },
+            legend:{
+                position:"bottom"
+            },
+            categoryAxis:{
+                field:"label"
+            },
+            series:[
+              {
+                  name:"2011 год",
+                  categoryField: "label",
+                  field:"value_2011",
+              },
+              {
+                  name:"2012 год",
+                  categoryField: "label",
+                  field:"value_2012",
+              },
+              {
+                  name:"2013 год",
+                  categoryField: "label",
+                  field:"value_2013",
+              }
+           ],
+           dataSource: data
+          };          	
+          $("#cliens_report_chart").kendoChart(сhartOptions);
+      };
+</script>

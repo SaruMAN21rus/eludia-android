@@ -4,6 +4,7 @@
     // later on so that we can use it if need be
     var app;
 
+    window.APP = load_models ();
     // create an object to store the models for each view
     // this function is called by Cordova when the application is loaded by the device
     document.addEventListener('deviceready', function () {
@@ -31,16 +32,17 @@
 
 }());
 
-function loadDataSource(type) {
+function load_models () {
+
+	var model_types = ['users_activity', 'clients_report'];
+
+    var models = {
+        models: {}
+    };
+
+    model_types.forEach(function (value) {
+    	eval ("models.models." + value + " = get_" + value + "_model ()")
+    });
     
-    return new kendo.data.DataSource(
-        {
-            transport: {
-                read: {
-                  url: config.host + "/?type=" + type + "&id=1&sid=" + config.id_session,
-                  dataType: "json"
-                }
-              }
-        }
-	)
+    return models;
 };

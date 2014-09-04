@@ -1,6 +1,12 @@
 <div data-role="view" data-layout="main" data-model="APP.models.users_activity" data-zoom="true" data-before-show="showChart">
-	<h1 data-bind="html: title"></h1>
-	<div id='chart'></div>
+    <h1 data-bind="html: title"></h1>
+	<div id='users_activity_chart'></div>
+    <div data-role="footer">
+        <div data-role="tabstrip">
+            <a href="view/users_activity_chart.html" data-icon="settings">График</a>
+            <a href="view/users_activity_data.html" data-icon="home">Данные</a>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -12,7 +18,7 @@
                 format:"{0:N2}",
                 template:"#= series.name #: #= value #"
             },
-            chartArea:{heigth:300},
+            chartArea:{heigth:600},
             seriesDefaults:{
                 type:"column",
                 labels:{
@@ -39,6 +45,6 @@
             series:[{name:"План",field:"plan"},{name:"Факт",field:"fact"},{name:"Отклонение",field:"diff"}],
             dataSource: data
           };          	
-          $("#chart").kendoChart(сhartOptions);
+          $("#users_activity_chart").kendoChart(сhartOptions);
       };
 </script>
