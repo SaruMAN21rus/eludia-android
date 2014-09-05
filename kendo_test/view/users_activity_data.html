@@ -1,4 +1,4 @@
-<div data-role="view" data-layout="main" data-model="APP.models.users_activity" data-before-show="show_users_activity_grid">
+<div data-role="view" data-layout="main" data-model="APP.models.users_activity" data-init="show_users_activity_grid">
 	<h1 data-bind="html: title"></h1>
 	<div id='users_activity_grid'></div>
     <div data-role="footer">
@@ -11,8 +11,8 @@
 
 <script>
      function show_users_activity_grid (e) {
-          var data = e.view.model.ds;
-          var gridOptions = {
+         var data = e.view.model.ds;
+         var gridOptions = {
               columns: [
               	{
                       field: 'label',
@@ -33,9 +33,11 @@
                       title: 'Отклонение',
                       format: "{0:N}"
                  }
-              ],              
+              ],
           	dataSource: data
           };
           $("#users_activity_grid").kendoGrid(gridOptions);
+
+          var users_activity_grid = $("#users_activity_grid").data("kendoGrid");
       };
 </script>
