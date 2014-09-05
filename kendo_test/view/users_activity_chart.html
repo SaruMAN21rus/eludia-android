@@ -1,4 +1,4 @@
-<div data-role="view" data-layout="main" data-model="APP.models.users_activity" data-zoom="true" data-before-show="showChart">
+<div data-role="view" data-layout="main" data-model="APP.models.users_activity" data-zoom="true" data-before-show="show_users_activity_сhart">
     <h1 data-bind="html: title"></h1>
 	<div id='users_activity_chart'></div>
     <div data-role="footer">
@@ -10,7 +10,7 @@
 </div>
 
 <script>
-     function showChart (e) {
+     function show_users_activity_сhart (e) {
           var data = e.view.model.ds;
           var сhartOptions = {
             tooltip:{

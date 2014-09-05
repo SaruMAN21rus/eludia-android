@@ -1,6 +1,6 @@
-<div data-role="view" data-layout="main" data-model="APP.models.users_activity" data-before-show="showGrid">
+<div data-role="view" data-layout="main" data-model="APP.models.users_activity" data-before-show="show_users_activity_grid">
 	<h1 data-bind="html: title"></h1>
-	<div id='grid'></div>
+	<div id='users_activity_grid'></div>
     <div data-role="footer">
         <div data-role="tabstrip">
             <a href="view/users_activity_chart.html" data-icon="settings">График</a>
@@ -10,7 +10,7 @@
 </div>
 
 <script>
-     function showGrid (e) {
+     function show_users_activity_grid (e) {
           var data = e.view.model.ds;
           var gridOptions = {
               columns: [
@@ -36,6 +36,6 @@
               ],              
           	dataSource: data
           };
-          $("#grid").kendoGrid(gridOptions);
+          $("#users_activity_grid").kendoGrid(gridOptions);
       };
 </script>

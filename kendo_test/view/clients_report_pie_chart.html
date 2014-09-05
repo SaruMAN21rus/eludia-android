@@ -1,26 +1,26 @@
-<div data-role="view" data-layout="main" data-model="APP.models.clients_report" data-zoom="true" data-before-show="show_clients_report_сhart">
+<div data-role="view" data-layout="main" data-model="APP.models.clients_report_pie" data-zoom="true" data-before-show="show_clients_report_pie_сhart">
     <h1 data-bind="html: title"></h1>
-	<div id='clients_report_chart'></div>
+	<div id='clients_report_pie_chart'></div>
     <div data-role="footer">
         <div data-role="tabstrip">
-            <a href="view/clients_report_chart.html" data-icon="settings">График</a>
-            <a href="view/clients_report_data.html" data-icon="home">Данные</a>
+            <a href="view/clients_report_pie_chart.html" data-icon="settings">График</a>
+            <a href="view/clients_report_pie_data.html" data-icon="home">Данные</a>
         </div>
     </div>
 </div>
 
 <script>
-     function show_clients_report_сhart (e) {
+     function show_clients_report_pie_сhart (e) {
           var data = e.view.model.ds;
           var сhartOptions = {
             tooltip:{
                 visible:1,
                 format:"{0:N2}",
-                template:"#= series.name#: #= value #"
+                template:"#= category #: #= value #"
             },
             chartArea:{heigth:600},
             seriesDefaults:{
-                type:"area",
+                type:"pie",
                 stack:true,
                 labels:{
                     visible:1,
@@ -34,7 +34,8 @@
                     text:"USD"
                 },
                 labels:{
-                    format:"{0:N2}"
+                    format:"{0:N2}",
+	                template:"#= category #: #= value #"
                 }
             },
             legend:{
@@ -45,16 +46,6 @@
             },
             series:[
               {
-                  name:"2011 год",
-                  categoryField: "label",
-                  field:"value_2011",
-              },
-              {
-                  name:"2012 год",
-                  categoryField: "label",
-                  field:"value_2012",
-              },
-              {
                   name:"2013 год",
                   categoryField: "label",
                   field:"value_2013",
@@ -62,6 +53,6 @@
            ],
            dataSource: data
           };          	
-          $("#clients_report_chart").kendoChart(сhartOptions);
+          $("#clients_report_pie_chart").kendoChart(сhartOptions);
       };
 </script>

@@ -34,7 +34,7 @@
 
 function load_models () {
 
-	var model_types = ['users_activity', 'clients_report'];
+	var model_types = ['users_activity', 'clients_report', 'clients_report_pie'];
 
     var models = {
         models: {}
