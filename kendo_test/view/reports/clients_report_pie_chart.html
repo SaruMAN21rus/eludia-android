@@ -1,10 +1,15 @@
-<div data-role="view" data-layout="main" data-model="APP.models.clients_report_pie" data-zoom="true" data-init="show_clients_report_pie_сhart">
-    <h1 data-bind="html: title"></h1>
+<div data-role="view" data-layout="main" data-model="APP.models.clients_report_pie" data-zoom="true" data-before-show="show_clients_report_pie_сhart" id="view-title">
+    <div data-role="navbar" style="background-color:transparent;">
+        <a id="back-button" class="nav-button" data-align="left" href="menu.html" data-role="backbutton">В меню</a>
+        <a id="back-button" class="nav-button" data-align="left" href="view/reports_menu.html" data-role="backbutton">Вернуться</a>
+        <a id="back-button" class="nav-button" data-align="right" href="login.html" data-role="backbutton">Выйти</a>
+        <h4 style="font-weight:bold;" data-bind="html: title"></h4>
+    </div>
 	<div id='clients_report_pie_chart'></div>
     <div data-role="footer">
         <div data-role="tabstrip">
-            <a href="view/clients_report_pie_chart.html" data-icon="settings">График</a>
-            <a href="view/clients_report_pie_data.html" data-icon="home">Данные</a>
+            <a href="view/reports/clients_report_pie_chart.html" data-icon="settings">График</a>
+            <a href="view/reports/clients_report_pie_data.html" data-icon="home">Данные</a>
         </div>
     </div>
 </div>
@@ -12,13 +17,14 @@
 <script>
      function show_clients_report_pie_сhart (e) {
           var data = e.view.model.ds;
+
           var сhartOptions = {
             tooltip:{
                 visible:1,
                 format:"{0:N2}",
                 template:"#= category #: #= value #"
             },
-            chartArea:{heigth:600},
+            chartArea:{height:window.innerHeight - 135},
             seriesDefaults:{
                 type:"pie",
                 stack:true,
@@ -26,7 +32,8 @@
                     visible:1,
                     format:"{0:N2}",
                     background:"transparent",
-					rotation: -45   
+					rotation: -45,
+	                template:"#= category #: #= value #"
                 }
             },
             valueAxis:{
@@ -35,7 +42,6 @@
                 },
                 labels:{
                     format:"{0:N2}",
-	                template:"#= category #: #= value #"
                 }
             },
             legend:{
@@ -54,5 +60,6 @@
            dataSource: data
           };          	
           $("#clients_report_pie_chart").kendoChart(сhartOptions);
+
       };
 </script>

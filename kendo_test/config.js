@@ -1,1 +1,1 @@
-var config = {host: 'http://empty-artem.cheby.ru'};
+var config = {host: 'http://mint.cheby.ru'};

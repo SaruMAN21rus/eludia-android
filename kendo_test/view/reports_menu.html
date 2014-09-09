@@ -1,0 +1,46 @@
+<div data-role="view" id="view-title">
+    <div data-role="navbar" style="background-color:transparent;">
+        <a id="back-button" class="nav-button" data-align="left" href="menu.html" data-role="backbutton">В меню</a>
+        <h4 style="font-weight:bold;">ОТЧЕТЫ</h4>
+        <a id="back-button" class="nav-button" data-align="right" href="login.html" data-role="backbutton">Выйти</a>
+    </div>
+    <table class="list-table">
+        <tr class="list-tr">
+            <td align="left" class="list-td">
+                <div id="cell">
+					<a data-role="button" class="list-btn" style="background:transparent;border:0;" data-click="onClick_crpc">
+                       <img src="styles/images/pie.png" style="height:100px;">
+                       Продажи по брендам за 2013 год
+                    </a>
+                </div>
+            </td>
+            <td align="left" class="list-td">
+                <div id="cell">
+    				<a data-role="button" class="list-btn" style="background:transparent;border:0;" data-click="onClick_crc">
+                       <img src="styles/images/column.png" style="height:100px;">
+    					Динамика продаж по брендам
+                    </a>                    
+                </div>
+            </td>
+            <td align="center" class="list-td">
+                <div id="reports-cell">                    
+            		<a data-role="button" class="list-btn" style="background:transparent;border:0;" data-click="onClick_uac">
+                        <img src="styles/images/area.png" style="height:100px;">
+                        Выполнение плана продаж
+                    </a>                        
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<script>
+    function onClick_uac () {
+        window.location.hash = "#view/reports/users_activity_chart.html";
+    }
+    function onClick_crc () {
+        window.location.hash = "#view/reports/clients_report_chart.html";
+    }
+    function onClick_crpc () {
+        window.location.hash = "#view/reports/clients_report_pie_chart.html";
+    }
+</script>

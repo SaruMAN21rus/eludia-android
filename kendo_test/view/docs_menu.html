@@ -1,0 +1,52 @@
+<div data-role="view" id="view-title">
+    <div data-role="navbar" style="background-color:transparent;">
+        <a id="back-button" class="nav-button" data-align="left" href="menu.html" data-role="backbutton">В меню</a>
+        <h4 style="font-weight:bold;">ДОКУМЕНТЫ</h4>
+        <a id="back-button" class="nav-button" data-align="right" href="login.html" data-role="backbutton">Выйти</a>
+    </div>
+    <table class="list-table">
+        <tr class="list-tr">
+            <td align="left" class="list-td">
+                <div id="cell">
+					<a data-role="button" class="list-btn" style="background:transparent;border:0;" data-click="onClick_docs">
+                       <table>
+                           <tr>
+                               <td style="padding:0">
+			               		<img src="styles/images/notepad.png" style="height:100px;margin:0;">
+                       		</td>
+                               <td style="padding:10px;">
+		                    		Договора
+                       		</td>
+                           </tr>                           
+                       </table>
+                    </a>
+                </div>
+            </td>
+            <td align="left" class="list-td">
+                <div id="cell">
+    				<a data-role="button" class="list-btn" style="background:transparent;border:0;" data-click="onClick_tasks">
+                       <table>
+                           <tr>
+                               <td style="padding:0">
+	                       		<img src="styles/images/tasks.png" style="height:100px;margin:0;">
+                       		</td>
+                               <td style="padding:10px;">
+	    							Задачи (на исполнение)
+                       		</td>
+                           </tr>
+                       </table>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    function onClick_docs () {
+        window.location.hash = "#view/docs/docs.html";
+    }
+    function onClick_tasks () {
+        window.location.hash = "#view/docs/tasks.html";
+    }
+</script>

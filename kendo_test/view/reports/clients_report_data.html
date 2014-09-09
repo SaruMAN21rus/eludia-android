@@ -1,0 +1,48 @@
+<div data-role="view" data-layout="main" data-model="APP.models.clients_report" data-init="show_clients_report_grid" id="view-title">
+    <div data-role="navbar" style="background-color:transparent;">
+        <a id="back-button" class="nav-button" data-align="left" href="menu.html" data-role="backbutton">В меню</a>
+        <a id="back-button" class="nav-button" data-align="left" href="view/reports_menu.html" data-role="backbutton">Вернуться</a>
+        <a id="back-button" class="nav-button" data-align="right" href="login.html" data-role="backbutton">Выйти</a>
+        <h4 style="font-weight:bold;" data-bind="html: title"></h4>
+    </div>
+	<div id='clients_report_grid'></div>
+    <div data-role="footer">
+        <div data-role="tabstrip">
+            <a href="view/reports/clients_report_chart.html" data-icon="settings">График</a>
+            <a href="view/reports/clients_report_data.html" data-icon="home">Данные</a>
+        </div>
+    </div>
+</div>
+
+<script>
+     function show_clients_report_grid (e) {
+          var data = e.view.model.ds;
+
+          var voc_groups = e.view.model.voc_groups;
+          var columns = [];
+		  columns.push ({field: 'year', title: 'Год'});          
+          voc_groups.fetch(function () {
+		  	var view = this.view();
+              
+              view.forEach(function (value) {
+
+                  var s = {};
+                  s.title = value.label;
+                  s.field = "value_" + value.id;
+                  
+                  columns.push (s);
+              });
+
+              data.read();
+              
+              var gridOptions = {
+                  columns: columns,
+              	dataSource: data
+              };
+              $("#clients_report_grid").kendoGrid(gridOptions);
+          });
+
+          voc_groups.read();
+
+          };
+</script>

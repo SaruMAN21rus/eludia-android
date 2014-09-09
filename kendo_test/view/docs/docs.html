@@ -1,0 +1,39 @@
+<div data-role="view" data-layout="main" data-model="APP.models.docs" data-init="show_docs_grid" id="view-title">
+    <div data-role="navbar" style="background-color:transparent;">
+        <a id="back-button" class="nav-button" data-align="left" href="menu.html" data-role="backbutton">В меню</a>
+        <a id="back-button" class="nav-button" data-align="left" href="view/docs_menu.html" data-role="backbutton">Вернуться</a>
+        <a id="back-button" class="nav-button" data-align="right" href="login.html" data-role="backbutton">Выйти</a>
+        <h4 style="font-weight:bold;" data-bind="html: title"></h4>
+    </div>
+	<div id='docs_grid'></div>
+</div>
+
+<script>
+     function show_docs_grid (e) {
+          var data = e.view.model.ds;
+
+         var gridOptions = {
+              columns: [
+              	{
+                      field: 'full_no',
+                      title: 'Номер',
+                  },
+              	{
+                      field: 'status',
+                      title: 'Статус',
+                  },
+              	{
+                      field: 'voc_agent_label',
+                      title: 'Юридическое лицо',
+                  },
+              	{
+                      field: 'label',
+                      title: 'Предмет договора',
+                  },
+         	],
+          	dataSource: data
+          };
+
+         $("#docs_grid").kendoGrid(gridOptions);
+    }
+</script>

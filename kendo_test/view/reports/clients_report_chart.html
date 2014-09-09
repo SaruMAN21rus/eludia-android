@@ -1,0 +1,73 @@
+<div data-role="view" data-layout="main" data-model="APP.models.clients_report" data-zoom="true" data-before-show="show_clients_report_сhart" id="view-title">
+    <div data-role="navbar" style="background-color:transparent;">
+        <a id="back-button" class="nav-button" data-align="left" href="menu.html" data-role="backbutton">В меню</a>
+        <a id="back-button" class="nav-button" data-align="left" href="view/reports_menu.html" data-role="backbutton">Вернуться</a>
+        <a id="back-button" class="nav-button" data-align="right" href="login.html" data-role="backbutton">Выйти</a>
+        <h4 style="font-weight:bold;" data-bind="html: title"></h4>
+    </div>
+    
+	<div id='clients_report_chart'></div>
+    <div data-role="footer">
+        <div data-role="tabstrip">
+            <a href="view/reports/clients_report_chart.html" data-icon="settings">График</a>
+            <a href="view/reports/clients_report_data.html" data-icon="home">Данные</a>
+        </div>
+    </div>
+</div>
+
+<script>
+     function show_clients_report_сhart (e) {
+          var data = e.view.model.ds;
+         
+          var series = [];
+          
+          var voc_groups = e.view.model.voc_groups;
+	  	var view = voc_groups.view();
+          
+          view.forEach(function (value) {
+
+              var s = {};
+              s.name = value.label;
+              s.field = "value_" + value.id;
+              s.categoryField = 'year';
+              
+              series.push (s);
+          });
+
+          var сhartOptions = {
+            tooltip:{
+                visible:1,
+                format:"{0:N2}",
+                template:"#= category#: #= value #"
+            },
+            chartArea:{height:window.innerHeight - 135},
+            seriesDefaults:{
+                type:"column",
+                labels:{
+                        visible:1,
+                        format:"{0:N2}",
+                        background:"transparent",
+    					rotation: -90   
+                    }
+            },
+            valueAxis:{
+                title:{
+                    text:"USD"
+                },
+                labels:{
+                    format:"{0:N2}"
+                }
+            },
+            legend:{
+                position:"bottom"
+            },
+            categoryAxis:{
+                field:"year"
+            },
+            series:series,
+           dataSource: data
+          };          	
+          $("#clients_report_chart").kendoChart(сhartOptions);                  
+
+      };
+</script>

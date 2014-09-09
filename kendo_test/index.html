@@ -3,17 +3,23 @@
 <head>
     <title></title>
     <meta charset="utf-8" />
-    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
     <link href="kendo/styles/kendo.dataviz.min.css" rel="stylesheet" />
+    <link href="kendo/styles/kendo.dataviz.default.min.css" rel="stylesheet" />
     <link href="kendo/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="kendo/styles/kendo.default.min.css" rel="stylesheet" />
     <link href="kendo/styles/kendo.silver.min.css" rel="stylesheet" />
+    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
 	<link href="styles/application.css" rel='stylesheet' type="text/css"/>
     <link href="styles/main.css" rel="stylesheet" />
+
+    <script src="kendo/js/jquery.min.js"></script>
+    <script src="kendo/js/kendo.all.min.js"></script>
 
     <script src="cordova.js"></script>
 
     <script src="kendo/js/jquery.min.js"></script>
     <script src="kendo/js/kendo.mobile.min.js"></script>
+    <script src="kendo/js/kendo.button.min.js"></script>
     <script src="kendo/js/kendo.grid.min.js"></script>
     <script src="kendo/js/kendo.dataviz.core.min.js"></script>
     <script src="kendo/js/kendo.dataviz.chart.min.js"></script>
@@ -24,14 +30,35 @@
     <script src="model/users_activity.js"></script>
     <script src="model/clients_report.js"></script>
     <script src="model/clients_report_pie.js"></script>
+    <script src="model/list.js"></script>
+    <script src="model/docs.js"></script>
+    <script src="model/tasks.js"></script>
     <script src="scripts/app.js"></script>
 
 </head>
 <body>
-	<div data-role="layout" data-id="main">
-    	<div data-role="view">
-	    	<a href="view/list.html" data-icon="home">Список</a>
-    	</div>
-    </div>
+    <style scoped>
+    	#view-title  .km-content {
+        	background: url(styles/images/abstract.png) no-repeat center;
+        	background-size:100%;
+    	}
+        .list-table {
+            width: 95%;
+            margin: 20px;
+        }
+        .list-td {
+        	padding: 10px;
+        }
+        div #cell {
+            height: 100px;
+            padding:0px;
+            box-shadow: 0 0 10px 1px rgba(0,0,0,0.5);
+        }
+        .list-btn {
+            font-weight:bold;
+            height:100%;
+            width:100%;        
+        }
+    </style>
 </body>
 </html>

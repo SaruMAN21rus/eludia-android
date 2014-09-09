@@ -1,10 +1,15 @@
-<div data-role="view" data-layout="main" data-model="APP.models.users_activity" data-zoom="true" data-init="show_users_activity_сhart">
-    <h1 data-bind="html: title"></h1>
+<div data-role="view" data-layout="main" data-model="APP.models.users_activity" data-zoom="true" data-before-show="show_users_activity_сhart" id="view-title">
+    <div data-role="navbar" style="background-color:transparent;">
+        <a id="back-button" class="nav-button" data-align="left" href="menu.html" data-role="backbutton">В меню</a>
+        <a id="back-button" class="nav-button" data-align="left" href="view/reports_menu.html" data-role="backbutton">Вернуться</a>
+        <a id="back-button" class="nav-button" data-align="right" href="login.html" data-role="backbutton">Выйти</a>
+        <h4 style="font-weight:bold;" data-bind="html: title"></h4>
+    </div>
 	<div id='users_activity_chart'></div>
     <div data-role="footer">
         <div data-role="tabstrip">
-            <a href="view/users_activity_chart.html" data-icon="settings">График</a>
-            <a href="view/users_activity_data.html" data-icon="home">Данные</a>
+            <a href="view/reports/users_activity_chart.html" data-icon="settings">График</a>
+            <a href="view/reports/users_activity_data.html" data-icon="home">Данные</a>
         </div>
     </div>
 </div>
@@ -18,15 +23,10 @@
                 format:"{0:N2}",
                 template:"#= series.name #: #= value #"
             },
-            chartArea:{heigth:600},
+            chartArea:{height:window.innerHeight - 135},
             seriesDefaults:{
-                type:"column",
-                labels:{
-                    visible:1,
-                    format:"{0:N2}",
-                    background:"transparent",
-					rotation: -90   
-                }
+                type:"area",
+                stack:true,
             },
             valueAxis:{
                 title:{

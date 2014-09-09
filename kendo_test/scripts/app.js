@@ -23,7 +23,7 @@
         skin: 'flat',
 
         // the application needs to know which view to load first
-        initial: config.id_session ? 'view/users_activity_chart.html' : 'login.html'
+        initial: config.id_session ? 'menu.html' : 'login.html'
       });
 
 
@@ -34,7 +34,7 @@
 
 function load_models () {
 
-	var model_types = ['users_activity', 'clients_report', 'clients_report_pie'];
+	var model_types = ['users_activity', 'clients_report', 'clients_report_pie', 'list', 'docs', 'tasks'];
 
     var models = {
         models: {}
