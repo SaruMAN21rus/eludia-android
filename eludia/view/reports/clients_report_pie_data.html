@@ -1,0 +1,50 @@
+<div data-role="view" data-layout="main" data-model="APP.models.clients_report_pie" data-init="show_clients_report_pie_grid" id="view-title">
+    <div data-role="navbar" style="background-color:transparent;">
+        <a id="logo-button" class="nav-button" data-align="left" href="login.html" data-role="backbutton" style="height:35px;padding:0;border:0">
+            <img src="styles/images/logo.png">
+        </a>        
+        <a id="back-button" class="nav-button" data-align="right" href="view/reports_menu.html" data-role="backbutton">Вернуться</a>
+        <a id="back-button" class="nav-button" data-align="right" href="login.html" data-role="backbutton">Выход</a>
+<!--        <a id="back-button" class="nav-button" data-align="right" href="view/reports_menu.html" data-role="backbutton" style="height:35px;width:35px;padding:0;border:0;margin:10px;">
+            <img src="styles/images/go-back.png" style="height:100%;width:100%">
+        </a>
+-->
+<!--        <a id="back-button" class="nav-button" data-align="right" href="login.html" data-role="backbutton" style="height:35px;width:35px;padding:0;border:0">
+            <img src="styles/images/down.png" style="height:100%;width:100%">
+        </a>
+-->
+        <h4 style="font-weight:bold;" data-bind="html: title"></h4>
+    </div>
+
+    <div data-role="touch" data-swipe="swipe_clients_report_pie" data-enable-swipe="1" style="height:600px">
+    	<div id='clients_report_pie_grid'></div>
+    </div>
+
+    <div data-role="footer">
+        <div data-role="tabstrip">
+            <a href="view/reports/clients_report_pie_chart.html" data-icon="settings">График</a>
+            <a href="view/reports/clients_report_pie_data.html" data-icon="home">Данные</a>
+        </div>
+    </div>
+</div>
+
+<script>
+     function show_clients_report_pie_grid (e) {
+          var data = e.view.model.ds;
+          var gridOptions = {
+              columns: [
+              	{
+                      field: 'label',
+                      title: 'Бренд',
+                  },
+              	{
+                      field: 'value_2013',
+                      title: '2013 год',
+                      format: "{0:N}"
+                  },
+              ],              
+          	dataSource: data
+          };
+          $("#clients_report_pie_grid").kendoGrid(gridOptions);
+      };
+</script>

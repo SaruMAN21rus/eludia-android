@@ -1,0 +1,66 @@
+<div data-role="view" id="view-title">
+    <div data-role="navbar" style="background-color:transparent;">
+        <a id="logo-button" class="nav-button" data-align="left" href="login.html" data-role="backbutton" style="height:35px;padding:0;border:0">
+            <img src="styles/images/logo.png">
+        </a>
+        <a id="back-button" class="nav-button" data-align="right" href="menu.html" data-role="backbutton">Вернуться</a>
+        <a id="back-button" class="nav-button" data-align="right" href="login.html" data-role="backbutton">Выход</a>
+<!--        <a id="back-button" class="nav-button" data-align="right" href="view/menu.html" data-role="backbutton" style="height:35px;width:35px;padding:0;border:0;margin:10px;">
+            <img src="styles/images/go-back.png" style="height:100%;width:100%">
+        </a>
+-->
+<!--        <a id="back-button" class="nav-button" data-align="right" href="login.html" data-role="backbutton" style="height:35px;width:35px;padding:0;border:0">
+            <img src="styles/images/down.png" style="height:100%;width:100%">
+        </a>
+-->
+        <h4 style="font-weight:bold;">ДОКУМЕНТЫ</h4>
+    </div>
+
+    <div data-role="touch" data-swipe="swipe_menu" data-enable-swipe="1" style="height:600px">
+        <table class="list-table">
+            <tr class="list-tr">
+                <td align="left" class="list-td" style="width:50%;">
+    				<div data-role="button" class="list-btn" style="background:white;border:0;padding:0;border-radius:0;" data-click="onClick_docs">
+                       <table>
+                           <tr>
+                               <td style="padding:0">
+    		               		<img src="styles/images/wordpad.png" style="height:100px;width:100px;margin:0;">
+                       		</td>
+                               <td style="padding:10px;">
+    	                    		Договора
+                       		</td>
+                           </tr>
+                       </table>
+                    </div>
+                </td>
+                <td align="left" class="list-td" style="width:50%;">
+    				<div data-role="button" class="list-btn" style="background:white;border:0;padding:0;border-radius:0;" data-click="onClick_tasks">
+                       <table>
+                           <tr>
+                               <td style="padding:0">
+                           		<img src="styles/images/tasks.png" style="height:100px;width:100px;margin:0;">
+                       		</td>
+                               <td style="padding:10px;">
+        							Задачи (на исполнение)
+                       		</td>
+                           </tr>
+                       </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+	</div>
+</div>
+<script>
+	function swipe_menu (e) {
+		if (e.direction === 'right') {
+            window.location.hash = "#menu.html"
+        }
+    }
+    function onClick_docs () {
+        window.location.hash = "#view/docs/docs.html";
+    }
+    function onClick_tasks () {
+        window.location.hash = "#view/docs/tasks.html";
+    }
+</script>

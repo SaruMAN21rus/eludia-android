@@ -1,21 +1,35 @@
 <div data-role="view" data-layout="main" data-model="APP.models.users_activity" data-init="show_users_activity_grid" id="view-title">
     <div data-role="navbar" style="background-color:transparent;">
-        <a id="back-button" class="nav-button" data-align="left" href="menu.html" data-role="backbutton">В меню</a>
-        <a id="back-button" class="nav-button" data-align="left" href="view/reports_menu.html" data-role="backbutton">Вернуться</a>
-        <a id="back-button" class="nav-button" data-align="right" href="login.html" data-role="backbutton">Выйти</a>
+        <a id="logo-button" class="nav-button" data-align="left" href="login.html" data-role="backbutton" style="height:35px;padding:0;border:0">
+            <img src="styles/images/logo.png">            
+        </a>        
+        <a id="back-button" class="nav-button" data-align="right" href="view/reports_menu.html" data-role="backbutton">Вернуться</a>
+        <a id="back-button" class="nav-button" data-align="right" href="login.html" data-role="backbutton">Выход</a>
+<!--        <a id="back-button" class="nav-button" data-align="right" href="view/reports_menu.html" data-role="backbutton" style="height:35px;width:35px;padding:0;border:0;margin:10px;">
+            <img src="styles/images/go-back.png" style="height:100%;width:100%">
+        </a>
+-->
+<!--        <a id="back-button" class="nav-button" data-align="right" href="login.html" data-role="backbutton" style="height:35px;width:35px;padding:0;border:0">
+            <img src="styles/images/down.png" style="height:100%;width:100%">
+        </a>
+-->
         <h4 style="font-weight:bold;" data-bind="html: title"></h4>
     </div>
-	<div id='users_activity_grid'></div>
+
+    <div data-role="touch" data-swipe="swipe_users_activity" data-enable-swipe="1" style="height:600px">
+        <div id='users_activity_grid'></div>
+    </div>
+
     <div data-role="footer">
         <div data-role="tabstrip">
             <a href="view/reports/users_activity_chart.html" data-icon="settings">График</a>
             <a href="view/reports/users_activity_data.html" data-icon="home">Данные</a>
         </div>
-    </div>
+    </div>    
 </div>
 
 <script>
-     function show_users_activity_grid (e) {
+    function show_users_activity_grid (e) {
          var data = e.view.model.ds;
          var gridOptions = {
               columns: [

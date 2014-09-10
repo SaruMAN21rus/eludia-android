@@ -1,7 +1,14 @@
 <div data-role="view" id="view-title" data-model="APP.models.list">
     <div data-role="navbar" style="background-color:transparent;">
+        <a id="logo-button" class="nav-button" data-align="left" href="login.html" data-role="backbutton" style="height:35px;padding:0;border:0">
+            <img src="styles/images/logo.png">            
+        </a>        
         <h4 style="font-weight:bold;" data-bind="html: title"></h4>
-        <a id="back-button" class="nav-button" data-align="right" href="login.html" data-role="backbutton">Выйти</a>
+        <a id="back-button" class="nav-button" data-align="right" href="login.html" data-role="backbutton">Выход</a>
+<!--        <a id="back-button" class="nav-button" data-align="right" href="login.html" data-role="backbutton" style="height:35px;width:35px;padding:0;border:0">
+            <img src="styles/images/down.png" style="height:100%;width:100%">
+        </a>
+-->
     </div>
     <table class="list-table">
         <tr class="list-tr">
@@ -10,7 +17,7 @@
                    <table>
                        <tr>
                            <td style="padding:0">
-                   			<img src="styles/images/folder.png" style="height:100px;width:100px;">  
+                   			<img src="styles/images/notepad.png" style="height:100px;width:100px;">  
                    		</td>
                            <td style="padding:10px;">
                        		Организационно-распорядительные<br>документы компании
