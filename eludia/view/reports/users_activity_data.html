@@ -1,6 +1,6 @@
 <div data-role="view" data-layout="main" data-model="APP.models.users_activity" data-init="show_users_activity_grid" id="view-title">
     <div data-role="navbar" style="background-color:transparent;">
-        <a id="logo-button" class="nav-button" data-align="left" href="login.html" data-role="backbutton" style="height:35px;padding:0;border:0">
+        <a id="logo-button" class="nav-button" data-align="left" href="menu.html" data-role="backbutton" style="height:35px;padding:0;border:0">
             <img src="styles/images/logo.png">            
         </a>        
         <a id="back-button" class="nav-button" data-align="right" href="view/reports_menu.html" data-role="backbutton">Вернуться</a>
@@ -27,36 +27,62 @@
         </div>
     </div>    
 </div>
+<!--
+<div data-role="modalview" id="modalview-msg" style="width:90%;height:50%;">
+    <div data-role="header">
+        <div data-role="navbar">
+            <span>Отправить сообщение</span>
+            <a data-click="closeModalViewMsg" data-role="button" data-align="right">Отмена</a>
+        </div>
+    </div>
 
+    <ul data-role="listview" data-style="inset">
+        <li><label for="theme">Тема: <input type="text" id="theme" /></label></li>
+        <li><label for="message">Сообщение: <input type="text" id="message" /></label></li>
+    </ul>
+    <a data-click="closeModalViewMsg" id="modalview-msg-button" data-align="center" type="button" data-role="button">Отправить</a>
+</div>
+-->
 <script>
+//    function closeModalViewMsg (e) {
+//		$("#modalview-msg").data("kendoMobileModalView").close();        
+//    }
+//    function columnClick (e) {
+//		$("#modalview-msg").data("kendoMobileModalView").open();        
+//    }
     function show_users_activity_grid (e) {
          var data = e.view.model.ds;
-         var gridOptions = {
-              columns: [
-              	{
-                      field: 'label',
-                      title: 'Бренд',
-                  },
-              	{
-                      field: 'plan',
-                      title: 'План',
-                      format: "{0:N}"
-                  },
-              	{
-                      field: 'fact',
-                      title: 'Факт',
-                      format: "{0:N}"
-                 },
-				 {
-                      field: 'diff',
-                      title: 'Отклонение',
-                      format: "{0:N}"
-                 }
-              ],
-          	dataSource: data
-          };
-          $("#users_activity_grid").kendoGrid(gridOptions);
 
-          var users_activity_grid = $("#users_activity_grid").data("kendoGrid");
+         var gridOptions = {
+             columns: [
+             	{
+                     field: 'label',
+                     title: 'Бренд',
+                 },
+             	{
+                     field: 'plan',
+                     title: 'План',
+                     format: "{0:N}"
+                 },
+             	{
+                     field: 'fact',
+                     title: 'Факт',
+                     format: "{0:N}"
+                },
+			 {
+                     field: 'diff',
+                     title: 'Отклонение',
+                     format: "{0:N}"
+                }
+             ],
+             dataSource: data,
+//             selectable: 'cell',
+         };
+
+        $("#users_activity_grid").kendoGrid(gridOptions);
+
+//         var users_activity_grid = $("#users_activity_grid").data("kendoGrid");
+
+//        users_activity_grid.bind("change", columnClick);
       };
 </script>

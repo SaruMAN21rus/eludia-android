@@ -1,10 +1,12 @@
-<div data-role="view" data-layout="main" data-model="APP.models.users_activity" data-zoom="true" data-before-show="show_users_activity_сhart" id="view-title">
+<div data-role="view" data-layout="main" data-model="APP.models.users_activity" data-zoom="true" data-before-show="show_users_activity_сhart" data-after-show="effect" id="view-title">
     <div data-role="navbar" style="background-color:transparent;">
-        <a id="logo-button" class="nav-button" data-align="left" href="login.html" data-role="backbutton" style="height:35px;padding:0;border:0">
+        <a id="logo-button" class="nav-button" data-align="left" href="menu.html" data-role="backbutton" style="height:35px;padding:0;border:0">
             <img src="styles/images/logo.png">            
         </a>        
+
         <a id="back-button" class="nav-button" data-align="right" href="view/reports_menu.html" data-role="backbutton">Вернуться</a>
         <a id="back-button" class="nav-button" data-align="right" href="login.html" data-role="backbutton">Выход</a>
+
 <!--        <a id="back-button" class="nav-button" data-align="right" href="view/reports_menu.html" data-role="backbutton" style="height:35px;width:35px;padding:0;border:0;margin:10px;">
             <img src="styles/images/go-back.png" style="height:100%;width:100%">
         </a>
@@ -17,7 +19,7 @@
     </div>
 
     <div data-role="touch" data-swipe="swipe_users_activity" data-enable-swipe="1" style="height:600px">
-    	<div id='users_activity_chart'></div>
+    	<div id='users_activity_chart'></div>        
 	</div>
 
     <div data-role="footer">
