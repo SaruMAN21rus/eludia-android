@@ -27,8 +27,8 @@
         </div>
     </div>    
 </div>
-<!--
-<div data-role="modalview" id="modalview-msg" style="width:90%;height:50%;">
+
+<div data-role="modalview" id="modalview-msg" style="width:95%;height:50%;border-radius:10px;">
     <div data-role="header">
         <div data-role="navbar">
             <span>Отправить сообщение</span>
@@ -37,19 +37,30 @@
     </div>
 
     <ul data-role="listview" data-style="inset">
-        <li><label for="theme">Тема: <input type="text" id="theme" /></label></li>
-        <li><label for="message">Сообщение: <input type="text" id="message" /></label></li>
+        <li>
+            <label for="theme" style="width:11%">
+                Тема:
+                <input type="text" id="theme" style="width:89%" />
+            </label>
+        </li>
+        <li>
+            <label for="message">
+            	Сообщение:
+                <textarea id="message" rows=5 cols=300 style="width:89%;"></textarea>
+            </label>
+        </li>
     </ul>
-    <a data-click="closeModalViewMsg" id="modalview-msg-button" data-align="center" type="button" data-role="button">Отправить</a>
+
+    <a data-click="closeModalViewMsg" id="modalview-msg-button" data-align="right" type="button" data-role="button">Отправить</a>
 </div>
--->
+
 <script>
-//    function closeModalViewMsg (e) {
-//		$("#modalview-msg").data("kendoMobileModalView").close();        
-//    }
-//    function columnClick (e) {
-//		$("#modalview-msg").data("kendoMobileModalView").open();        
-//    }
+    function closeModalViewMsg (e) {
+		$("#modalview-msg").data("kendoMobileModalView").close();        
+    }
+    function columnClick (e) {
+		$("#modalview-msg").data("kendoMobileModalView").open();
+    }
     function show_users_activity_grid (e) {
          var data = e.view.model.ds;
 
@@ -81,8 +92,8 @@
 
         $("#users_activity_grid").kendoGrid(gridOptions);
 
-//         var users_activity_grid = $("#users_activity_grid").data("kendoGrid");
-
-//        users_activity_grid.bind("change", columnClick);
+         var users_activity_grid = $("#users_activity_grid").data("kendoGrid");
+        users_activity_grid.bind("change", columnClick);
+        
       };
 </script>

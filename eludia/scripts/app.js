@@ -24,6 +24,7 @@
 
         // the application needs to know which view to load first
         initial: config.id_session ? 'menu.html' : 'login.html'
+
       });
 
     }, false);
