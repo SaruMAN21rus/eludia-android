@@ -1,61 +1,111 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title></title>
-    <meta charset="utf-8" />
-    <link href="kendo/styles/kendo.dataviz.min.css" rel="stylesheet" />
-    <link href="kendo/styles/kendo.dataviz.default.min.css" rel="stylesheet" />
-    <link href="kendo/styles/kendo.common.min.css" rel="stylesheet" />
-    <link href="kendo/styles/kendo.default.min.css" rel="stylesheet" />
-    <link href="kendo/styles/kendo.silver.min.css" rel="stylesheet" />
-    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
-	<link href="styles/application.css" rel='stylesheet' type="text/css"/>
-    <link href="styles/main.css" rel="stylesheet" />
+    <head>
+        <title></title>
+        <meta charset="utf-8" />
+        <link href="kendo/styles/kendo.dataviz.min.css" rel="stylesheet" />
+        <link href="kendo/styles/kendo.dataviz.default.min.css" rel="stylesheet" />
+        <link href="kendo/styles/kendo.common.min.css" rel="stylesheet" />
+        <link href="kendo/styles/kendo.default.min.css" rel="stylesheet" />
+        <link href="kendo/styles/kendo.silver.min.css" rel="stylesheet" />
+        <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+        <link href="styles/application.css" rel='stylesheet' type="text/css"/>
+        <link href="styles/main.css" rel="stylesheet" />
 
-    <script src="kendo/js/jquery.min.js"></script>
-    <script src="kendo/js/kendo.all.min.js"></script>
+        <script src="kendo/js/jquery.min.js"></script>
+        <script src="kendo/js/kendo.all.min.js"></script>
+        <script src="kendo/js/fastclick.js"></script>
 
-    <script src="cordova.js"></script>
+        <script src="cordova.js"></script>
 
-    <script src="kendo/js/jquery.min.js"></script>
-    <script src="kendo/js/kendo.mobile.min.js"></script>
-    <script src="kendo/js/kendo.button.min.js"></script>
-    <script src="kendo/js/kendo.grid.min.js"></script>
-    <script src="kendo/js/kendo.dataviz.core.min.js"></script>
-    <script src="kendo/js/kendo.dataviz.chart.min.js"></script>
-    <script src="kendo/js/kendo.dataviz.svg.min.js"></script>
-    <script src="kendo/js/kendo.dataviz.themes.min.js"></script>
+        <script src="kendo/js/jquery.min.js"></script>
+        <script src="kendo/js/kendo.mobile.min.js"></script>
+        <script src="kendo/js/kendo.button.min.js"></script>
+        <script src="kendo/js/kendo.grid.min.js"></script>
+        <script src="kendo/js/kendo.dataviz.core.min.js"></script>
+        <script src="kendo/js/kendo.dataviz.chart.min.js"></script>
+        <script src="kendo/js/kendo.dataviz.svg.min.js"></script>
+        <script src="kendo/js/kendo.dataviz.themes.min.js"></script>
 
-    <script src="config.js"></script>
-    <script src="model/users_activity.js"></script>
-    <script src="model/clients_report.js"></script>
-    <script src="model/clients_report_pie.js"></script>
-    <script src="model/list.js"></script>
-    <script src="model/docs.js"></script>
-    <script src="model/tasks.js"></script>
-    <script src="scripts/app.js"></script>
+        <script src="config.js"></script>
+        <script src="model/users_activity.js"></script>
+        <script src="model/clients_report.js"></script>
+        <script src="model/clients_report_pie.js"></script>
+        <script src="model/list.js"></script>
+        <script src="model/docs.js"></script>
+        <script src="model/tasks.js"></script>
+        <script src="scripts/app.js"></script>
 
-</head>
-<body>
-    <style scoped>
-    	#view-title  .km-content {
-        	background: url(styles/images/back.jpg) no-repeat center;
-        	background-size:100% 100%;
-    	}
-        .list-table {
-            width: 95%;
-            margin: 20px;
-        }
-        .list-td {            
-        	padding: 10px;
-        }
-        .list-btn {
-            height: 100px;
-            padding:0px;
-            box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.7);
-            font-weight:bold;
-            width:100%;        
-        }
-    </style>
-</body>
+    </head>
+    <body>
+        <style scoped>
+            #view-title  .km-content
+            {
+                background: url(styles/images/back.jpg) no-repeat center;
+                background-size: 100% 100%;
+            }
+            .list-table
+            {
+                width: 95%;
+                margin: 20px;
+            }
+            .list-td
+            { 
+                padding: 10px;
+            }
+            .list-btn
+            {
+                height: 100px;
+                padding: 0px;
+                box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.7);
+                font-weight: bold;
+                width: 100%; 
+            }
+            .view-title  .km-content
+            {
+                background: url(styles/images/back.jpg) no-repeat center;
+                background-size: 100% 100%;
+            }
+        </style>
+        <script>
+            var showMenu=false;
+            function btnShowMenuClick(e) {  
+                if (!showMenu) {
+                    $('.view-title').animate({
+                        width: "-=60px",
+                        height: "-=60px"
+                    }, 500);
+                    showMenu = true;
+                    $("#title").show();
+                } else {
+                    $('.view-title').animate({
+                        width: "100%",
+                        height: "100%"
+                    }, 500);
+                    showMenu = false;
+                    $("#title").hide("normal");
+                }
+            }
+            document.addEventListener('DOMContentLoaded', function () {
+		        var fastClickButton = document.querySelector('#btn-show-menu');
+		        new FastClick(fastClickButton);
+	        });
+        </script>
+        <div id="bottom-menu" class="bottom-menu" style="display: none;">
+            <div id="fade-out-right-pnl" class="pnl fade-out-right">
+                <div id="page-title" class="page-title div-opacity">
+                    <span style="height:100%"></span>
+                    <span id="text"></span>
+                </div>
+            </div>
+            <div onclick="btnShowMenuClick.call(this);" id="btn-show-menu" class="btn-show-menu">
+            </div>
+        </div>
+        <div id="title" class="bottom-menu" style="display: none;">
+            <div id="fade-in-up-pnl" class="pnl fade-in-up">
+                <span style="height:100%"></span>
+                <span class="title"></span>
+            </div>
+        </div>
+    </body>
 </html>

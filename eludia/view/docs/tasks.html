@@ -1,4 +1,4 @@
-logo<div data-role="view" data-layout="main" data-model="APP.models.tasks" data-init="show_tasks_grid" id="view-title">
+logo<div data-role="view" data-layout="main" data-model="APP.models.tasks" data-init="show_tasks_grid" class="view-title" data-after-show="afterShow" data-before-hide="beforeHide">
     <div data-role="navbar" style="background-color:transparent;">
         <a id="logo-button" class="nav-button" data-align="left" href="menu.html" data-role="backbutton" style="height:35px;padding:0;border:0">
             <img src="styles/images/logo.png">            
@@ -52,5 +52,8 @@ logo<div data-role="view" data-layout="main" data-model="APP.models.tasks" data-
           };
 
          $("#tasks_grid").kendoGrid(gridOptions);
+    }
+    function afterShow() {
+        reloadBotMenu("Задачи (На исполнение)", "Здесь отображаются неисполненные задачи пользователя");
     }
 </script>

@@ -40,6 +40,7 @@
     "org.apache.cordova.dialogs",
     "org.apache.cordova.splashscreen",
     "org.apache.cordova.statusbar",
+    "com.telerik.feedback",
     "org.apache.cordova.vibration"
   ],
   "AndroidPermissions": [
@@ -73,5 +74,10 @@
     "ID_RESOLUTION_WXGA",
     "ID_RESOLUTION_HD720P"
   ],
-  "Framework": "Cordova"
+  "Framework": "Cordova",
+  "CordovaPluginVariables": {
+    "com.telerik.mobiletesting": {
+      "IOS_APP_URL": ""
+    }
+  }
 }

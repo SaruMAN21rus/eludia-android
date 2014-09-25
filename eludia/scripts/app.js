@@ -94,3 +94,16 @@ function swipe_docs_menu (e) {
         window.location.hash = "#view/reports/clients_report_data.html"
     }
  };
+
+function reloadBotMenu(title, descriprion) {
+    $("#bottom-menu #fade-out-right-pnl #page-title #text").text(title);
+    $("#title #fade-in-up-pnl .title").html(title + "<br><span class=\"description\">"+ descriprion + "</span>");
+    $("#bottom-menu").show();
+}; 
+
+function beforeHide() {
+    $('.view-title').width('100%');
+    $('.view-title').height('100%');
+    $("#bottom-menu").hide();
+}   
+  
