@@ -37,7 +37,7 @@
         <script src="scripts/app.js"></script>
 
     </head>
-    <body>
+    <body onload="onLoad()">
         <style scoped>
             #view-title  .km-content
             {
@@ -71,28 +71,42 @@
             var showMenu=false;
             function btnShowMenuClick(e) {  
                 if (!showMenu) {
+                    $('#btn-show-menu').css("background-image", "url(styles/images/icon_less.png)");
                     $('.view-title').animate({
-                        width: "-=60px",
+                        width: "-=100px",
                         height: "-=60px"
                     }, 500);
                     showMenu = true;
                     $("#title").show();
+                    $("#right-menu").show();
                 } else {
+                    $('#btn-show-menu').css("background-image", "url(styles/images/btn_show_bg.png)");
                     $('.view-title').animate({
                         width: "100%",
                         height: "100%"
                     }, 500);
                     showMenu = false;
                     $("#title").hide("normal");
+                    $("#right-menu").hide("slow");
                 }
             }
             document.addEventListener('DOMContentLoaded', function () {
 		        var fastClickButton = document.querySelector('#btn-show-menu');
 		        new FastClick(fastClickButton);
 	        });
+            function onLoad() {
+                document.addEventListener('deviceready', function () {
+                    try {
+                        feedback.initialize('dfed2da0-4313-11e4-a9e2-d949d492b895');
+                    } catch (err) {
+                        console.log('Something went wrong:');
+                        console.log(err);
+                    }
+                }, false);
+            }
         </script>
-        <div id="bottom-menu" class="bottom-menu" style="display: none;">
-            <div id="fade-out-right-pnl" class="pnl fade-out-right">
+        <div id="bottom-menu" class="bottom-menu fade-out-right" style="display: none;">
+            <div id="fade-out-right-pnl" class="pnl rotate">
                 <div id="page-title" class="page-title div-opacity">
                     <span style="height:100%"></span>
                     <span id="text"></span>
@@ -105,6 +119,22 @@
             <div id="fade-in-up-pnl" class="pnl fade-in-up">
                 <span style="height:100%"></span>
                 <span class="title"></span>
+            </div>
+        </div>
+        <div id="right-menu" style="display: none;">
+            <div id="fade-in-right-pnl" class="pnl fade-in-right">
+                <div class="case-row">
+                    <span id="sendFeedbackButton" class="case-cell"><img src="styles/images/icon_feedback.png"></span>
+                    <span class="case-cell"><img src="styles/images/icon_add_fav.png"></span>
+                </div>
+                <div class="case-row">
+                    <span class="case-cell"><img src="styles/images/icon_code.png"></span>
+                    <span class="case-cell"><img src="styles/images/icon_info.png"></span>
+                </div>
+                <div class="case-row">
+                    <span class="case-cell"><img src="styles/images/icon_arrow.png"></span>
+                    <span class="case-cell"><img src="styles/images/icon_arrow2.png"></span>
+                </div>
             </div>
         </div>
     </body>

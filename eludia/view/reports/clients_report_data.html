@@ -1,4 +1,4 @@
-<div data-role="view" data-layout="main" data-model="APP.models.clients_report" data-init="show_clients_report_grid" id="view-title">
+<div data-role="view" data-layout="main" data-model="APP.models.clients_report" data-init="show_clients_report_grid" class="view-title" data-before-hide="beforeHidePageWithTap">
     <div data-role="navbar" style="background-color:transparent;">
         <a id="logo-button" class="nav-button" data-align="left" href="menu.html" data-role="backbutton" style="height:35px;padding:0;border:0">
             <img src="styles/images/logo.png">            
@@ -19,7 +19,7 @@
     	<div id='clients_report_grid'></div>
     </div>
     <div data-role="footer">
-        <div data-role="tabstrip">
+        <div data-role="tabstrip" data-select="onFooterTapSelect">
             <a href="view/reports/clients_report_chart.html" data-icon="settings">График</a>
             <a href="view/reports/clients_report_data.html" data-icon="home">Данные</a>
         </div>
